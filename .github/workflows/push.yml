@@ -1,0 +1,28 @@
+name: Push
+on: [push]
+jobs:
+  setup:
+    name: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: npm install
+        run: |
+          npm install
+      - name: npm run build
+        run: |
+          npm run build
+      - name: npm run test
+        run: |
+          npm run test
+        env:
+          CI: true
+      - name: lhci autorun
+        run: |
+          npm install -g @lhci/cli@0.7.x
+          lhci autorun
+      

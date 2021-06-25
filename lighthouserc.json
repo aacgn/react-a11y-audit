@@ -1,0 +1,16 @@
+{
+    "ci": {
+      "collect": {
+        "url": ["http://localhost:3000"],
+        "startServerCommand": "npm run start",
+        "startServerReadyPattern": "You can now view a11y in the browser.",
+        "numberOfRuns": 1
+      },
+      "upload": {
+        "target": "temporary-public-storage"
+      },
+      "assert": {
+        "preset": "lighthouse:recommended"
+      }
+    }
+}
